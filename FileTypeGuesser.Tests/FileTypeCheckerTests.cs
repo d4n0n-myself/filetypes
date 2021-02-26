@@ -47,5 +47,26 @@
                 new[] { "Bitmap" },
                 fileTypes.Select(fileType => fileType.Name));
         }
+        
+        [Test]
+        public void TestWord()
+        {
+            var fileStream = File.Open($@"C:\Users\d.sibaev\Desktop\form.ExpertReview.Panel124.Panel144.ExpertReviewAttach[1].doc", FileMode.Open);
+            
+            var fileTypes = checker.GetFileTypes(fileStream);
+            CollectionAssert.AreEquivalent(
+                new[] { "Microsoft Word (old)" },
+                fileTypes.Select(fileType => fileType.Name));
+        }
+        
+        [Test]
+        public void TestExcel()
+        {
+            var fileStream = File.Open($@"C:\Users\d.sibaev\Desktop\test.xls", FileMode.Open);
+            var fileTypes = checker.GetFileTypes(fileStream);
+            CollectionAssert.AreEquivalent(
+                new[] { "Microsoft Word (old)" },
+                fileTypes.Select(fileType => fileType.Name));
+        }
     }
 }
