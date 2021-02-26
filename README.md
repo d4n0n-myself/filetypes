@@ -2,4 +2,8 @@ Based on [Guessing a file type based on its content](http://codereview.stackexch
 
 
 
-Magic numbers: https://www.garykessler.net/library/file_sigs.html
+Magic numbers: 
+
+1)https://www.garykessler.net/library/file_sigs.html
+
+2)https://filesignatures.net/index.php?page=all&order=SIGNATURE&sort=DESC&alpha=X
