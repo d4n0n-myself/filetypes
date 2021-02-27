@@ -27,7 +27,7 @@ namespace FileTypeGuesser.NetCore
             // new ("Zip archive", ".zip", new ExactFileTypeMatcher(new byte[] {	})),
             new ("Rar archive", ".rar", new ExactFileTypeMatcher(new byte[] {	0x52, 0x61, 0x72, 0x21, 0x1A, 0x07, 0x01, 0x00}),true),
             new ("Rar archive", ".rar", new ExactFileTypeMatcher(new byte[] {	0x52, 0x61, 0x72, 0x21, 0x1A, 0x07, 0x00}),true),
-            new ("7z archive", ".7z", new ExactFileTypeMatcher(new byte[] {0x37, 0x7A, 0xBC, 0xAF, 0x27, 0x1C}),true),
+            new ("7z archive", ".7z", new ExactFileTypeMatcher(new byte[] {0x37, 0x7A, 0xBC, 0xAF, 0x27, 0x1C})),
             
             // new ("Text", ".txt", new ExactFileTypeMatcher(new byte[] {})),
             new ("Text", ".rtf", new ExactFileTypeMatcher(new byte[] {0x7B, 0x5C, 0x72, 0x74, 0x66, 0x31})),
