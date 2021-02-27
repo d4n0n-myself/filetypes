@@ -1,6 +1,6 @@
 using System.IO;
 
-namespace FileTypeGuesser.NetCore
+namespace FileTypeGuesser.NetCore.Matchers
 {
     public class RangeFileTypeMatcher : FileTypeMatcher
     {

@@ -1,7 +1,7 @@
 using System;
 using System.IO;
 
-namespace FileTypeGuesser.NetCore
+namespace FileTypeGuesser.NetCore.Matchers
 {
     public abstract class FileTypeMatcher
     {
@@ -9,11 +9,11 @@ namespace FileTypeGuesser.NetCore
         {
             if (stream == null)
             {
-                throw new ArgumentNullException("stream");
+                throw new ArgumentNullException(nameof(stream));
             }
             if (!stream.CanRead || (stream.Position != 0 && !stream.CanSeek))
             {
-                throw new ArgumentException("File contents must be a readable stream", "stream");
+                throw new ArgumentException("File contents must be a readable stream", nameof(stream));
             }
             if (stream.Position != 0 && resetPosition)
             {

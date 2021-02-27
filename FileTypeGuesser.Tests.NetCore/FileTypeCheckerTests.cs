@@ -1,6 +1,6 @@
 using System.IO;
-using System.Linq;
 using FileTypeGuesser.NetCore;
+using FileTypeGuesser.NetCore.Models;
 using NUnit.Framework;
 
 namespace FileTypeGuesser.Tests.NetCore
@@ -16,9 +16,9 @@ namespace FileTypeGuesser.Tests.NetCore
             checker = new FileTypeChecker();
         }
 
-        private static string GetPathToTestFileName(string extension)
+        private static string GetPathToTestFileName(string fileNameWithExtension)
         {
-            return $@"../../../Resources/test.{extension}";
+            return $@"../../../Resources/{fileNameWithExtension}";
         }
         
         [Test]
@@ -39,14 +39,16 @@ namespace FileTypeGuesser.Tests.NetCore
         [TestCase("gif")]
         [TestCase("pcx")]
         [TestCase("zip")]
+        [TestCase("zip", "empty")]
         [TestCase("rar")]
         [TestCase("7z")]
-        public void TestExtension(string extension)
+        public void TestExtension(string extension, string testFileName = null)
         {
-            var fileStream = File.Open(GetPathToTestFileName(extension), FileMode.Open);
+            testFileName ??= "test";
+            var fileStream = File.Open(GetPathToTestFileName(testFileName + "." + extension), FileMode.Open);
             var fileType = checker.GetFileType(fileStream);
             Assert.That(fileType != FileType.Unknown, $"Failed to identify {extension}");
-            Assert.That(fileType.Extension == $".{extension}");
+            Assert.That(fileType.Extension == $".{extension}", $"Extension doesn't match {extension} != {fileType.Extension}");
         }
     }
 }
