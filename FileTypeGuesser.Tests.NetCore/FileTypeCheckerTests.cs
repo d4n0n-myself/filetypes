@@ -15,41 +15,38 @@ namespace FileTypeGuesser.Tests.NetCore
         {
             checker = new FileTypeChecker();
         }
-        
-        [Test]
-        public void TestPdf()
+
+        private static string GetPathToTestFileName(string extension)
         {
-            var fileStream = File.Open($@"../../../Resources/advancedquantumthermodynamics.pdf", FileMode.Open);
-            var fileType = checker.GetFileType(fileStream);
-            Assert.That(fileType != null);
-            Assert.That(fileType.Extension == ".pdf");
+            return $@"../../../Resources/test.{extension}";
         }
         
         [Test]
-        public void TestBmp()
+        [TestCase("txt")]
+        [TestCase("doc")]
+        [TestCase("docx")]
+        [TestCase("rtf")]
+        [TestCase("xls")]
+        [TestCase("xlsx")]
+        [TestCase("pps")]
+        [TestCase("ppt")]
+        [TestCase("pptx")]
+        [TestCase("pdf")]
+        [TestCase("jpg")]
+        [TestCase("bmp")]
+        [TestCase("png")]
+        [TestCase("tiff")]
+        [TestCase("gif")]
+        [TestCase("pcx")]
+        [TestCase("zip")]
+        [TestCase("rar")]
+        [TestCase("7z")]
+        public void TestExtension(string extension)
         {
-            var fileStream = File.Open($@"../../../Resources/LAND.BMP", FileMode.Open);
+            var fileStream = File.Open(GetPathToTestFileName(extension), FileMode.Open);
             var fileType = checker.GetFileType(fileStream);
-            Assert.That(fileType != null);
-            Assert.That(fileType.Extension == ".bmp");
-        }
-        
-        [Test]
-        public void TestWord()
-        {
-            var fileStream = File.Open($@"C:\Users\d.sibaev\Desktop\form.ExpertReview.Panel124.Panel144.ExpertReviewAttach[1].doc", FileMode.Open);
-            var fileType = checker.GetFileType(fileStream);
-            Assert.That(fileType != null);
-            Assert.That(fileType.Extension == ".doc");
-        }
-        
-        [Test]
-        public void TestExcel()
-        {
-            var fileStream = File.Open($@"C:\Users\d.sibaev\Desktop\test.xls", FileMode.Open);
-            var fileType = checker.GetFileType(fileStream);
-            Assert.That(fileType != null);
-            Assert.That(fileType.Extension == ".xls");
+            Assert.That(fileType != FileType.Unknown, $"Failed to identify {extension}");
+            Assert.That(fileType.Extension == $".{extension}");
         }
     }
 }
