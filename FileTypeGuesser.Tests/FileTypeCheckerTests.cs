@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using NUnit.Framework;
 
@@ -47,6 +48,16 @@ namespace FileTypeGuesser.Tests
             var fileType = checker.GetFileType(fileStream);
             Assert.That(fileType.Extension == $".{extension}",
                 $"Extension doesn't match: {extension} != {fileType.Extension}");
+        }
+
+        [Test]
+        [TestCase("unknown")]
+        [TestCase("unknown1")]
+        public void TestFileWithoutExtension(string fileName)
+        {
+            var fileStream = File.Open(GetPathToTestFileName(fileName), FileMode.Open);
+            var fileType = checker.GetFileType(fileStream);
+            Console.WriteLine(fileType.Name);
         }
     }
 }
