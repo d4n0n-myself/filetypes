@@ -1,19 +1,21 @@
 using System.IO;
 using FileTypeGuesser.NetCore.Matchers;
 
-namespace FileTypeGuesser.NetCore.Models
+namespace FileTypeGuesser.NetCore.FileTypes
 {
-    public class FileType
+    public abstract class FileType
     {
         private readonly FileTypeMatcher fileTypeMatcher;
 
+        // ReSharper disable once UnusedAutoPropertyAccessor.Global
+        // ReSharper disable once MemberCanBePrivate.Global
         public string Name { get; }
 
         public string Extension { get; }
 
         public bool IsCompressed { get; }
         
-        public static FileType Default { get; } = new("Text document", ".txt", null);
+        public static FileType Default { get; } = new Txt();
 
         public FileType(string name, string extension, FileTypeMatcher matcher, bool isCompressed = false)
         {

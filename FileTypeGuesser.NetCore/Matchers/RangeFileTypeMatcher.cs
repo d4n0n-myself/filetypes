@@ -16,10 +16,10 @@ namespace FileTypeGuesser.NetCore.Matchers
 
         protected override bool MatchesPrivate(Stream stream)
         {
-            for (var i = 0; i < this.maximumStartLocation; i++)
+            for (var i = 0; i < maximumStartLocation; i++)
             {
                 stream.Position = i;
-                if (matcher.Matches(stream, resetPosition: false))
+                if (matcher.Matches(stream, false))
                 {
                     return true;
                 }

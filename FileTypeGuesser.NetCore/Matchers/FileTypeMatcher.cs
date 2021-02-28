@@ -11,7 +11,7 @@ namespace FileTypeGuesser.NetCore.Matchers
             {
                 throw new ArgumentNullException(nameof(stream));
             }
-            if (!stream.CanRead || (stream.Position != 0 && !stream.CanSeek))
+            if (!stream.CanRead || stream.Position != 0 && !stream.CanSeek)
             {
                 throw new ArgumentException("File contents must be a readable stream", nameof(stream));
             }

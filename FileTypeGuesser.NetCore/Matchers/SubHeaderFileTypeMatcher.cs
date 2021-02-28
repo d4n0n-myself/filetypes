@@ -26,6 +26,7 @@ namespace FileTypeGuesser.NetCore.Matchers
 
             stream.Seek(subHeaderPosition, SeekOrigin.Begin);
 
+            // ReSharper disable once LoopCanBeConvertedToQuery
             foreach (var currentHeaderElement in subHeader)
             {
                 var readByte = stream.ReadByte();

@@ -15,6 +15,7 @@ namespace FileTypeGuesser.NetCore.Matchers
 
         protected override bool MatchesPrivate(Stream stream)
         {
+            // ReSharper disable once LoopCanBeConvertedToQuery
             foreach (var b in bytes)
             {
                 var c = stream.ReadByte();

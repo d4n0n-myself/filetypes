@@ -46,7 +46,8 @@ namespace FileTypeGuesser.Tests.NetCore
             testFileName ??= "test";
             var fileStream = File.Open(GetPathToTestFileName(testFileName + "." + extension), FileMode.Open);
             var fileType = checker.GetFileType(fileStream);
-            Assert.That(fileType.Extension == $".{extension}", $"Extension doesn't match: {extension} != {fileType.Extension}");
+            Assert.That(fileType.Extension == $".{extension}",
+                $"Extension doesn't match: {extension} != {fileType.Extension}");
         }
     }
 }
