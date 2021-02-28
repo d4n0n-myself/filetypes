@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31206.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileTypeGuesser.NetCore", "FileTypeGuesser.NetCore\FileTypeGuesser.NetCore.csproj", "{F5DCCE81-525D-44A1-8840-9146D3EE9E57}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileTypeGuesser", "FileTypeGuesser\FileTypeGuesser.csproj", "{F5DCCE81-525D-44A1-8840-9146D3EE9E57}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileTypeGuesser.Tests.NetCore", "FileTypeGuesser.Tests.NetCore\FileTypeGuesser.Tests.NetCore.csproj", "{30F782C1-85C9-4F48-938F-ED5F9F74992E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileTypeGuesser.Tests", "FileTypeGuesser.Tests\FileTypeGuesser.Tests.csproj", "{C3AD8FFE-D0BB-4399-B6BC-DBA9FB786CA8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{F5DCCE81-525D-44A1-8840-9146D3EE9E57}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5DCCE81-525D-44A1-8840-9146D3EE9E57}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5DCCE81-525D-44A1-8840-9146D3EE9E57}.Release|Any CPU.Build.0 = Release|Any CPU
-		{30F782C1-85C9-4F48-938F-ED5F9F74992E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{30F782C1-85C9-4F48-938F-ED5F9F74992E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{30F782C1-85C9-4F48-938F-ED5F9F74992E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{30F782C1-85C9-4F48-938F-ED5F9F74992E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3AD8FFE-D0BB-4399-B6BC-DBA9FB786CA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3AD8FFE-D0BB-4399-B6BC-DBA9FB786CA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3AD8FFE-D0BB-4399-B6BC-DBA9FB786CA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3AD8FFE-D0BB-4399-B6BC-DBA9FB786CA8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
