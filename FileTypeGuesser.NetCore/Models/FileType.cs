@@ -13,7 +13,7 @@ namespace FileTypeGuesser.NetCore.Models
 
         public bool IsCompressed { get; }
         
-        public static FileType Unknown { get; } = new("unknown", string.Empty, null);
+        public static FileType Default { get; } = new("Text document", ".txt", null);
 
         public FileType(string name, string extension, FileTypeMatcher matcher, bool isCompressed = false)
         {

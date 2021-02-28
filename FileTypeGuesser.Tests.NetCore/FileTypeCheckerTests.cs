@@ -1,6 +1,5 @@
 using System.IO;
 using FileTypeGuesser.NetCore;
-using FileTypeGuesser.NetCore.Models;
 using NUnit.Framework;
 
 namespace FileTypeGuesser.Tests.NetCore
@@ -47,8 +46,7 @@ namespace FileTypeGuesser.Tests.NetCore
             testFileName ??= "test";
             var fileStream = File.Open(GetPathToTestFileName(testFileName + "." + extension), FileMode.Open);
             var fileType = checker.GetFileType(fileStream);
-            Assert.That(fileType != FileType.Unknown, $"Failed to identify {extension}");
-            Assert.That(fileType.Extension == $".{extension}", $"Extension doesn't match {extension} != {fileType.Extension}");
+            Assert.That(fileType.Extension == $".{extension}", $"Extension doesn't match: {extension} != {fileType.Extension}");
         }
     }
 }

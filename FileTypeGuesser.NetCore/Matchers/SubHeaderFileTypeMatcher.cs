@@ -26,7 +26,16 @@ namespace FileTypeGuesser.NetCore.Matchers
 
             stream.Seek(subHeaderPosition, SeekOrigin.Begin);
 
-            return subHeader.All(b => stream.ReadByte() == b);
+            foreach (var currentHeaderElement in subHeader)
+            {
+                var readByte = stream.ReadByte();
+                if (currentHeaderElement == null)
+                    continue;
+                
+                if (readByte != currentHeaderElement) return false;
+            }
+
+            return true;
         }
     }
 }

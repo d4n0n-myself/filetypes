@@ -15,7 +15,7 @@ namespace FileTypeGuesser.NetCore.Matchers
 
         protected override bool MatchesPrivate(Stream stream)
         {
-            foreach (var b in this.bytes)
+            foreach (var b in bytes)
             {
                 var c = stream.ReadByte();
                 if (c == -1 || (b.HasValue && c != b.Value))
